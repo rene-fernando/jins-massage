@@ -4,7 +4,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { MapPin, Phone, Mail, Clock, Star, Heart, Sparkles } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Star, Heart, Sparkles, Leaf, Droplet } from "lucide-react";
+import { image } from "framer-motion/client";
 
 // Jin's Massage one-page starter, modeled after the structure of the provided reference
 // Swap shadcn/ui for simple <button> tags if needed.
@@ -16,7 +17,7 @@ const SectionTitle = ({ title, subtitle }: { title: string; subtitle?: string })
   </div>
 );
 
-const ServiceCard = ({ title, desc, price, image }: { title: string; desc: string; price?: string; image?: string }) => (
+const ServiceCard = ({ title, desc, price, image }: { title: string; desc: string; price?: React.ReactNode; image?: string }) => (
   <Card className="rounded-2xl overflow-hidden">
     {image && (
       <div className="aspect-video w-full bg-cover bg-center" style={{ backgroundImage: `url(${image})` }} />
@@ -34,7 +35,7 @@ const ServiceCard = ({ title, desc, price, image }: { title: string; desc: strin
 
 export default function JinsMassageLanding() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-white to-slate-50 text-slate-900">
+    <div className="min-h-screen bg-gradient-to-b from-[rgba(255, 182, 193, 0.4)] via-[rgba(255, 182, 193, 0.6)] to-[rgba(255, 182, 193, 0.8)] text-slate-900">
       {/* Navbar */}
       <header className="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/60 border-b">
         <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
@@ -43,9 +44,9 @@ export default function JinsMassageLanding() {
             <span className="font-semibold tracking-wide">Jin's Massage</span>
           </div>
           <nav className="hidden md:flex items-center gap-6 text-sm">
-            <a href="#services" className="hover:opacity-80">Services</a>
-            <a href="#packages" className="hover:opacity-80">Packages</a>
             <a href="#about" className="hover:opacity-80">About</a>
+            <a href="#services" className="hover:opacity-80">Services</a>
+            <a href="#add-ons" className="hover:opacity-80">Add-Ons</a>
             <a href="#contact" className="hover:opacity-80">Contact</a>
           </nav>
           <Button className="rounded-2xl px-4">Book Now</Button>
@@ -85,96 +86,113 @@ export default function JinsMassageLanding() {
           </div>
           </section>
 
-          {/* Services */}
-          <section id="services" className="py-16">
-          <div className="max-w-6xl mx-auto px-4">
+            {/* About */}
+            <section id="about" className="py-16">
+              <div className="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
+                <div className="rounded-3xl overflow-hidden shadow-lg aspect-[4/3] bg-[url('/images/hands.jpg')] bg-cover bg-center" />
+                <div>
+                  <SectionTitle title="About Jin's" />
+                  <p className="text-muted-foreground leading-relaxed">
+                    With a gentle yet effective approach, Jin's blends Eastern and Western techniques to support circulation, mobility, and deep relaxation. Each session is fully customized to your body and goals.
+                  </p>
+                  <ul className="mt-6 grid sm:grid-cols-2 gap-3 text-sm">
+                    <li className="flex items-center gap-2"><Sparkles className="w-4 h-4"/> Licensed, experienced staff</li>
+                    <li className="flex items-center gap-2"><Star className="w-4 h-4"/> Local 5‑star favorite</li>
+                    <li className="flex items-center gap-2"><Leaf className="w-4 h-4"/> Clean, skin‑friendly products</li>
+                    <li className="flex items-center gap-2"><Clock className="w-4 h-4"/> Easy online booking</li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+
+            {/* Services */}
+            <section id="services" className="py-16">
+            <div className="max-w-6xl mx-auto px-4">
             <SectionTitle title="Massage Services" subtitle="Classic and targeted bodywork to meet you where you are."/>
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-4 gap-6">
             <ServiceCard
               title="Swedish Massage"
               desc="Long, flowing strokes to calm the nervous system, improve circulation, and melt away everyday tension. Ideal for first‑timers and deep relaxation."
-              price="$98 • 60 min"
-              image="https://images.unsplash.com/photo-1540541338287-41700207dee6?q=80&auto=format&fit=crop&w=1200"
+              price={
+              <span style={{ whiteSpace: "pre-line" }}>
+                30 min • $50
+                {"\n"}60 min • $80
+                {"\n"}90 min • $120
+              </span>
+              }
+              image="images/swedishMassage.jpg"
             />
             <ServiceCard
               title="Deep Tissue Massage"
               desc="Focused, slower pressure to reach deeper layers and relieve chronic tightness. Great for desk strain, athletic recovery, and persistent knots."
-              price="$108 • 60 min"
-              image="https://images.unsplash.com/photo-1600959907703-125ba1374a12?q=80&auto=format&fit=crop&w=1200"
+              price={
+              <span style={{ whiteSpace: "pre-line" }}>
+                30 min • $60
+                {"\n"}60 min • $80
+                {"\n"}90 min • $130
+              </span>
+              }
+              image="images/deepTissueMassage.jpg"
             />
             <ServiceCard
-              title="Deluxe Elite Massage"
+              title="Combo Massage"
               desc="An elevated session with premium oil, hot stones or Himalayan salt stones, steam eye mask or facial mask, plus hydration and infrared lamp treatment."
-              price="$128 • 60 min"
-              image="https://images.unsplash.com/photo-1556228724-4c1f9a9f5ff3?q=80&auto=format&fit=crop&w=1200"
+              price={
+              <span style={{ whiteSpace: "pre-line" }}>
+                30 min • $55
+                {"\n"}60 min • $85
+                {"\n"}90 min • $125
+              </span>
+              }
+              image="images/comboMassage.jpg"
             />
+            <ServiceCard
+              title="Foot Reflexology"
+              desc="Gentle pressure on mapped points of the feet to ease tension, improve circulation, reduce stress, and restore balance throughout the body."
+              price={
+              <span style={{ whiteSpace: "pre-line" }}>
+                30 min • $50
+                {"\n"}45 min • $65
+                {"\n"}60 min • $80
+              </span>
+              }
+              image="images/footBath.jpg"
+            />
+            </div>
+            {/* <p className="text-sm text-muted-foreground mt-4">* Placeholder. Replace with actual menu.</p> */}
           </div>
-          <p className="text-sm text-muted-foreground mt-4">* Sample pricing. Replace with Jin's actual menu.</p>
-        </div>
-      </section>
+          </section>
 
       {/* Packages */}
-      <section id="packages" className="py-16 bg-white">
+      <section id="add-ons" className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4">
-          <SectionTitle title="Popular Combos" subtitle="Thoughtful pairings for a fuller reset."/>
+          <SectionTitle title="Add-Ons" subtitle="Enhance your session with these relaxing upgrades." />
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { title: "Refresh Duo", desc: "30m Swedish + 30m Deep Tissue", price: "$150" },
-              { title: "Weekend Reset", desc: "60m Massage + Hot Stones", price: "$165" },
-              { title: "Calm & Glow", desc: "60m Massage + Hydration add‑on", price: "$145" },
-            ].map((p) => (
-              <Card key={p.title} className="rounded-2xl">
-                <CardContent className="p-6">
-                  <h3 className="text-lg font-semibold">{p.title}</h3>
-                  <p className="text-muted-foreground mt-2">{p.desc}</p>
-                  <p className="mt-4 font-semibold">{p.price}</p>
-                  <Button className="mt-6 rounded-2xl w-full">Book {p.title}</Button>
+              { title: "Cupping", desc: "Gentle suction therapy to improve circulation, relieve muscle tension, and promote healing.", price: "$20", image: "images/cupping.jpg" },
+              { title: "Himalayan Salt Stone", desc: "Warm salt stones to soothe tight areas and provide a natural detoxifying effect.", price: "$15", image: "images/himalayanSalt.jpg" },
+              { title: "Hot Stones", desc: "Smooth, heated stones to melt away tension and enhance relaxation during your massage.", price: "$15", image: "images/hotStones.jpg" },
+              { title: "doTERRA Oil", desc: "Premium essential oil blend to elevate your massage with calming or invigorating aromas.", price: "$15", image: "images/doTERRA.jpg" },
+              { title: "CBD Oil", desc: "Infused oil to reduce inflammation, ease pain, and promote deep relaxation.", price: "$15", image: "images/CBD.jpg" },
+              { title: "Stretching", desc: "Assisted stretching to improve flexibility, relieve stiffness, and enhance mobility.", price: "$30", image: "images/stretching.jpg" },
+            ].map((addon) => (
+              <Card key={addon.title} className="rounded-2xl overflow-hidden">
+                {addon.image && (
+                  <div
+                    className="aspect-video w-full bg-cover bg-center"
+                    style={{ backgroundImage: `url(${addon.image})` }}
+                  />
+                )}
+                <CardContent className="p-6 flex flex-col justify-between h-full">
+                  <div>
+                    <h3 className="text-lg font-semibold">{addon.title}</h3>
+                    <p className="text-muted-foreground mt-2 leading-relaxed">{addon.desc}</p>
+                  </div>
+                  <p className="mt-4 font-semibold self-start">{addon.price}</p>
                 </CardContent>
               </Card>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* About */}
-      <section id="about" className="py-16">
-        <div className="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
-          <div className="rounded-3xl overflow-hidden shadow-lg aspect-[4/3] bg-[url('https://images.unsplash.com/photo-1619451635801-9836d6f6e6a3?q=80&w=2069&auto=format&fit=crop')] bg-cover bg-center" />
-          <div>
-            <SectionTitle title="Meet Jin" />
-            <p className="text-muted-foreground leading-relaxed">
-              With a gentle yet effective approach, Jin blends Eastern and Western techniques to support circulation, mobility, and deep relaxation. Each session is fully customized to your body and goals.
-            </p>
-            <ul className="mt-6 grid sm:grid-cols-2 gap-3 text-sm">
-              <li className="flex items-center gap-2"><Sparkles className="w-4 h-4"/> Licensed, experienced therapist</li>
-              <li className="flex items-center gap-2"><Star className="w-4 h-4"/> Local 5‑star favorite</li>
-              <li className="flex items-center gap-2"><Sparkles className="w-4 h-4"/> Clean, skin‑friendly products</li>
-              <li className="flex items-center gap-2"><Clock className="w-4 h-4"/> Easy online booking</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* Retail / Items */}
-      <section id="retail" className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-4">
-          <SectionTitle title="Shop Jin’s Essentials" subtitle="Curated items to extend your relaxation at home."/>
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              { title: "Aromatherapy Oil Blend", desc: "A gentle, skin‑safe blend ideal for temple or neck massage at home. Calming notes to quiet the mind.", image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&auto=format&fit=crop&w=1200" },
-              { title: "Himalayan Salt Stone", desc: "Naturally warming stone to ease tight areas. Use as a dry compress or glide with oil for soothing heat.", image: "https://images.unsplash.com/photo-1599490659213-e2b9527bd087?q=80&auto=format&fit=crop&w=1200" },
-              { title: "Steam Eye Mask", desc: "Single‑use warming mask to relieve eye fatigue and encourage deeper rest after screen‑heavy days.", image: "https://images.unsplash.com/photo-1612832021025-46ef2eac8d5b?q=80&auto=format&fit=crop&w=1200" },
-            ].map((i) => (
-              <Card key={i.title} className="rounded-2xl overflow-hidden">
-                <div className="aspect-video w-full bg-cover bg-center" style={{ backgroundImage: `url(${i.image})` }} />
-                <CardContent className="p-6">
-                  <h3 className="text-lg font-semibold">{i.title}</h3>
-                  <p className="text-muted-foreground mt-2 leading-relaxed">{i.desc}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-          <p className="text-sm text-muted-foreground mt-4">We’ll swap in your exact products and photos once provided.</p>
         </div>
       </section>
 
@@ -186,20 +204,20 @@ export default function JinsMassageLanding() {
             <Card className="rounded-2xl">
               <CardContent className="p-6">
                 <h3 className="font-semibold mb-2">Visit</h3>
-                <p className="text-sm text-muted-foreground">123 Tranquil Ln, Suite B<br/>Your City, ST 00000</p>
+                <p className="text-sm text-muted-foreground">131216 Huebner Rd<br/>San Antonio, TX 78230</p>
               </CardContent>
             </Card>
             <Card className="rounded-2xl">
               <CardContent className="p-6">
                 <h3 className="font-semibold mb-2">Hours</h3>
-                <p className="text-sm text-muted-foreground">Mon–Sat: 10:00a – 7:00p<br/>Sun: Closed</p>
+                <p className="text-sm text-muted-foreground">Mon–Sun: 9:30a–8p<br/></p>
               </CardContent>
             </Card>
             <Card className="rounded-2xl">
               <CardContent className="p-6 space-y-2">
                 <h3 className="font-semibold">Connect</h3>
-                <p className="text-sm flex items-center gap-2"><Phone className="w-4 h-4"/> (555) 123‑4567</p>
-                <p className="text-sm flex items-center gap-2"><Mail className="w-4 h-4"/> hello@jinsmassage.example</p>
+                <p className="text-sm flex items-center gap-2"><Phone className="w-4 h-4"/> (210) 909-8821</p>
+                <p className="text-sm flex items-center gap-2"><Mail className="w-4 h-4"/> TODO@TODO-REPLACE.example</p>
               </CardContent>
             </Card>
           </div>
