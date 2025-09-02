@@ -7,9 +7,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, Phone, Mail, Clock, Star, Heart, Sparkles, Leaf, Droplet } from "lucide-react";
 import { image } from "framer-motion/client";
 
-// Jin's Massage one-page starter, modeled after the structure of the provided reference
-// Swap shadcn/ui for simple <button> tags if needed.
-
 const SectionTitle = ({ title, subtitle }: { title: string; subtitle?: string }) => (
   <div className="max-w-2xl mx-auto text-center mb-10">
     <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">{title}</h2>
@@ -27,7 +24,13 @@ const ServiceCard = ({ title, desc, price, image }: { title: string; desc: strin
       <p className="text-muted-foreground mt-2 leading-relaxed">{desc}</p>
       {price && <p className="mt-4 font-semibold">{price}</p>}
       <div className="mt-4">
-        <Button className="rounded-2xl">Book {title}</Button>
+        <a
+          href="https://www.fresha.com/a/jin-spa-san-antonio-13216-huebner-rd-huebner-road-aet3w337"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Button className="rounded-2xl">Book {title}</Button>
+        </a>
       </div>
     </CardContent>
   </Card>
@@ -49,7 +52,13 @@ export default function JinsMassageLanding() {
             <a href="#add-ons" className="hover:opacity-80">Add-Ons</a>
             <a href="#contact" className="hover:opacity-80">Contact</a>
           </nav>
-          <Button className="rounded-2xl px-4">Book Now</Button>
+          <a
+            href="https://www.fresha.com/a/jin-spa-san-antonio-13216-huebner-rd-huebner-road-aet3w337"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button className="rounded-2xl px-4">Book Now</Button>
+          </a>
         </div>
       </header>
 
@@ -64,7 +73,13 @@ export default function JinsMassageLanding() {
               Therapeutic bodywork and calming treatments tailored to your goals. From Swedish to Deep Tissue and specialty add‑ons, Jin's Massage is your space to breathe and reset.
             </p>
             <div className="mt-8 flex gap-3">
-              <Button className="rounded-2xl px-5">Schedule Now</Button>
+              <a
+                href="https://www.fresha.com/a/jin-spa-san-antonio-13216-huebner-rd-huebner-road-aet3w337"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button className="rounded-2xl px-5">Schedule Now</Button>
+              </a>
               <Button variant="outline" className="rounded-2xl px-5" asChild>
                 <a href="#services">Explore Services</a>
               </Button>
@@ -128,7 +143,7 @@ export default function JinsMassageLanding() {
               price={
               <span style={{ whiteSpace: "pre-line" }}>
                 30 min • $60
-                {"\n"}60 min • $80
+                {"\n"}60 min • $90
                 {"\n"}90 min • $130
               </span>
               }
@@ -170,7 +185,7 @@ export default function JinsMassageLanding() {
           <div className="grid md:grid-cols-3 gap-6">
             {[
               { title: "Cupping", desc: "Gentle suction therapy to improve circulation, relieve muscle tension, and promote healing.", price: "$20", image: "images/cupping.jpg" },
-              { title: "Himalayan Salt Stone", desc: "Warm salt stones to soothe tight areas and provide a natural detoxifying effect.", price: "$15", image: "images/himalayanSalt.jpg" },
+              { title: "Himalayan Salt Stone", desc: "Warm salt stones to soothe tight areas and provide a natural detoxifying effect.", price: "$15", image: "images/saltStones.jpg" },
               { title: "Hot Stones", desc: "Smooth, heated stones to melt away tension and enhance relaxation during your massage.", price: "$15", image: "images/hotStones.jpg" },
               { title: "doTERRA Oil", desc: "Premium essential oil blend to elevate your massage with calming or invigorating aromas.", price: "$15", image: "images/doTERRA.jpg" },
               { title: "CBD Oil", desc: "Infused oil to reduce inflammation, ease pain, and promote deep relaxation.", price: "$15", image: "images/CBD.jpg" },
@@ -217,12 +232,18 @@ export default function JinsMassageLanding() {
               <CardContent className="p-6 space-y-2">
                 <h3 className="font-semibold">Connect</h3>
                 <p className="text-sm flex items-center gap-2"><Phone className="w-4 h-4"/> (210) 909-8821</p>
-                <p className="text-sm flex items-center gap-2"><Mail className="w-4 h-4"/> TODO@TODO-REPLACE.example</p>
+                <p className="text-sm flex items-center gap-2"><Mail className="w-4 h-4"/> jinspa13216@gmail.com</p>
               </CardContent>
             </Card>
           </div>
           <div className="text-center mt-8">
-            <Button className="rounded-2xl px-6">Book an Appointment</Button>
+            <a
+              href="https://www.fresha.com/a/jin-spa-san-antonio-13216-huebner-rd-huebner-road-aet3w337"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button className="rounded-2xl px-6">Book an Appointment</Button>
+            </a>
           </div>
         </div>
       </section>
