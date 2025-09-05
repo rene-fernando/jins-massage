@@ -4,8 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { MapPin, Phone, Mail, Clock, Star, Heart, Sparkles, Leaf, Droplet } from "lucide-react";
-import { image } from "framer-motion/client";
+import { MapPin, Phone, Mail, Clock, Star, Heart, Sparkles, Leaf } from "lucide-react";
 
 const SectionTitle = ({ title, subtitle }: { title: string; subtitle?: string }) => (
   <div className="max-w-2xl mx-auto text-center mb-10">
@@ -44,7 +43,7 @@ export default function JinsMassageLanding() {
         <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Heart className="w-6 h-6"/>
-            <span className="font-semibold tracking-wide">Jin's Massage</span>
+            <span className="font-semibold tracking-wide">Jin&apos;s Massage</span>
           </div>
           <nav className="hidden md:flex items-center gap-6 text-sm">
             <a href="#about" className="hover:opacity-80">About</a>
@@ -70,7 +69,7 @@ export default function JinsMassageLanding() {
               Relax. Realign. <span className="whitespace-nowrap">Restore.</span>
             </h1>
             <p className="mt-5 text-lg text-muted-foreground leading-relaxed">
-              Therapeutic bodywork and calming treatments tailored to your goals. From Swedish to Deep Tissue and specialty add‑ons, Jin's Massage is your space to breathe and reset.
+              Therapeutic bodywork and calming treatments tailored to your goals. From Swedish to Deep Tissue and specialty add‑ons, Jin&apos;s Massage is your space to breathe and reset.
             </p>
             <div className="mt-8 flex gap-3">
               <a
@@ -106,9 +105,9 @@ export default function JinsMassageLanding() {
               <div className="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
                 <div className="rounded-3xl overflow-hidden shadow-lg aspect-[4/3] bg-[url('/images/hands.jpg')] bg-cover bg-center" />
                 <div>
-                  <SectionTitle title="About Jin's" />
+                  <SectionTitle title="About Jin&apos;s" />
                   <p className="text-muted-foreground leading-relaxed">
-                    With a gentle yet effective approach, Jin's blends Eastern and Western techniques to support circulation, mobility, and deep relaxation. Each session is fully customized to your body and goals.
+                    With a gentle yet effective approach, Jin&apos;s blends Eastern and Western techniques to support circulation, mobility, and deep relaxation. Each session is fully customized to your body and goals.
                   </p>
                   <ul className="mt-6 grid sm:grid-cols-2 gap-3 text-sm">
                     <li className="flex items-center gap-2"><Sparkles className="w-4 h-4"/> Licensed, experienced staff</li>
@@ -223,7 +222,7 @@ export default function JinsMassageLanding() {
       {/* Footer */}
       <footer className="py-10 border-t">
         <div className="max-w-6xl mx-auto px-4 text-sm text-muted-foreground flex flex-col md:flex-row items-center justify-between gap-4">
-          <p>© {new Date().getFullYear()} Jin's Massage. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Jin&apos;s Massage. All rights reserved.</p>
           <div className="flex items-center gap-6">
             <a href="#" className="hover:opacity-80">Policies</a>
             <a href="#" className="hover:opacity-80">Gift Cards</a>
