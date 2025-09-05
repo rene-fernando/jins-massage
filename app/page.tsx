@@ -5,12 +5,6 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, Phone, Mail, Clock, Star, Heart, Sparkles, Leaf } from "lucide-react";
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Jin's Massage",
-  description: "Therapeutic bodywork and calming treatments tailored to your goals.",
-};
 
 const SectionTitle = ({ title, subtitle }: { title: string; subtitle?: string }) => (
   <div className="max-w-2xl mx-auto text-center mb-10">
