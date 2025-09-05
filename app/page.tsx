@@ -38,7 +38,7 @@ const ServiceCard = ({ title, desc, price, image }: { title: string; desc: strin
 
 export default function JinsMassageLanding() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[rgba(255, 182, 193, 0.4)] via-[rgba(255, 182, 193, 0.6)] to-[rgba(255, 182, 193, 0.8)] text-slate-900">
+    <div className="min-h-screen bg-[rgba(255,182,193,.25)] text-slate-900">
       {/* Navbar */}
       <header className="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/60 border-b">
         <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
@@ -151,7 +151,7 @@ export default function JinsMassageLanding() {
           </section>
 
       {/* Packages */}
-      <section id="add-ons" className="py-16 bg-white">
+      <section id="add-ons" className="py-16">
         <div className="max-w-6xl mx-auto px-4">
           <SectionTitle title="Add-Ons" subtitle="Enhance your session with these relaxing upgrades." />
           <div className="grid md:grid-cols-3 gap-6">
